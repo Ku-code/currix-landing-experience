@@ -18,7 +18,7 @@ const Hero = () => {
           aria-hidden
           onError={() => setVideoError(true)}
         >
-          <source src="./currix-video.mp4" type="video/mp4" />
+          <source src="/currix-video.mp4" type="video/mp4" />
         </video>
       )}
       {/* Fallback background when video fails to load */}

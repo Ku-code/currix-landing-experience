@@ -3,9 +3,9 @@ import react from "@vitejs/plugin-react-swc";
 import path from "path";
 
 // https://vitejs.dev/config/
-// Use relative base for GitHub Pages - works with custom domain and project URLs
+// base: "/" for custom domain (currix.nl) - assets load from root
 export default defineConfig({
-  base: "./",
+  base: "/",
   server: {
     host: "::",
     port: 8080,
