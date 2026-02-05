@@ -20,23 +20,23 @@ const USP = () => {
         </h2>
         
         {/* USP points */}
-        <div className="grid md:grid-cols-3 gap-12">
-          <div className="space-y-4">
-            <div className="w-12 h-1 bg-primary" />
+        <div className="grid md:grid-cols-3 gap-8">
+          <div className="space-y-4 bg-background rounded-2xl p-6 border border-border">
+            <div className="w-12 h-1 bg-primary rounded-full" />
             <h3 className="font-display text-xl">BRAND-FIRST</h3>
             <p className="text-muted-foreground font-body font-light">
               Built for identity, not just taste. Simple, iconic, Google-able.
             </p>
           </div>
-          <div className="space-y-4">
-            <div className="w-12 h-1 bg-secondary" />
+          <div className="space-y-4 bg-background rounded-2xl p-6 border border-border">
+            <div className="w-12 h-1 bg-secondary rounded-full" />
             <h3 className="font-display text-xl">CULTURE-DRIVEN</h3>
             <p className="text-muted-foreground font-body font-light">
               Food, culture, and identity in one scalable platform.
             </p>
           </div>
-          <div className="space-y-4">
-            <div className="w-12 h-1 bg-foreground" />
+          <div className="space-y-4 bg-background rounded-2xl p-6 border border-border">
+            <div className="w-12 h-1 bg-foreground rounded-full" />
             <h3 className="font-display text-xl">GLOBAL POTENTIAL</h3>
             <p className="text-muted-foreground font-body font-light">
               Positioned to become the Coca-Cola of Currywurst.
