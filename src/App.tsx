@@ -29,7 +29,7 @@ const App = () => (
     <TooltipProvider>
       <Toaster />
       <Sonner />
-      <BrowserRouter>
+      <BrowserRouter basename="/currix-landing-experience">
         <RedirectHandler />
         <Routes>
           <Route path="/" element={<Index />} />

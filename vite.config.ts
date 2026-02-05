@@ -3,9 +3,10 @@ import react from "@vitejs/plugin-react-swc";
 import path from "path";
 
 // https://vitejs.dev/config/
-// base: "/" for custom domain (currix.nl) - assets load from root
+// base: repo path for GitHub Pages project site.
+// Use "/currix-landing/" if your repo is named currix-landing instead.
 export default defineConfig({
-  base: "/",
+  base: "/currix-landing-experience/",
   server: {
     host: "::",
     port: 8080,
