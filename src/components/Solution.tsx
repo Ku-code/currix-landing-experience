@@ -26,7 +26,7 @@ const Solution = () => {
           {pillars.map((pillar, index) => (
             <div 
               key={pillar.title}
-              className="border border-border p-6 hover:border-primary transition-colors duration-300 group"
+              className="border border-border rounded-2xl p-6 hover:border-primary transition-colors duration-300 group"
             >
               <div className="text-4xl font-display text-muted-foreground group-hover:text-primary transition-colors mb-4">
                 0{index + 1}
@@ -38,7 +38,7 @@ const Solution = () => {
         </div>
         
         {/* Quote */}
-        <div className="mt-24 border-l-2 border-primary pl-8">
+        <div className="mt-24 border-l-2 border-primary pl-8 rounded-sm">
           <p className="text-2xl md:text-3xl font-body font-light italic text-muted-foreground">
             "Consumers don't buy food anymore —{" "}
             <span className="text-foreground not-italic">they buy brands, identity, and experiences.</span>"
