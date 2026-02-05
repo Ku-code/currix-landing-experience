@@ -48,6 +48,15 @@ const Hero = () => {
       <div className="relative z-10 text-center max-w-5xl mx-auto -mt-32 md:-mt-48">
         {/* Brand name */}
         <h1 className="font-display text-[clamp(3rem,12vw,10rem)] leading-[0.85] tracking-tight mb-6 animate-slide-up">
+          {/* CURRIX - mobile only, same size, white-to-fire-orange gradient */}
+          <span
+            className="md:hidden block mb-2 bg-clip-text text-transparent"
+            style={{
+              backgroundImage: "linear-gradient(180deg, #ffffff 0%, hsl(35, 100%, 65%) 40%, hsl(15, 95%, 55%) 70%, hsl(0, 85%, 50%) 100%)",
+            }}
+          >
+            CURRIX
+          </span>
           <span className="text-gradient-wave">CURRYWURST</span>
         </h1>
         
