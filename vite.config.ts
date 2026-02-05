@@ -3,10 +3,9 @@ import react from "@vitejs/plugin-react-swc";
 import path from "path";
 
 // https://vitejs.dev/config/
-// For GitHub Pages: use base '/repo-name/' for project sites, '/' for custom domain (currix.nl)
-const repoName = process.env.GITHUB_PAGES_BASE || "";
+// Use relative base for GitHub Pages - works with custom domain and project URLs
 export default defineConfig({
-  base: repoName ? `/${repoName}/` : "/",
+  base: "./",
   server: {
     host: "::",
     port: 8080,
