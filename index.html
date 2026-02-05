@@ -18,7 +18,16 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
-    <link rel="preload" as="video" href="/currix-video.mp4" type="video/mp4" fetchpriority="high" />
+    <script>
+      window.addEventListener('error', function(e) {
+        if (e.target && e.target.tagName === 'SCRIPT' && e.target.src) {
+          var root = document.getElementById('root');
+          if (root && root.children.length === 0) {
+            root.innerHTML = '<div style="padding:2rem;text-align:center;color:#fafafa;font-family:system-ui,sans-serif;max-width:400px;margin:4rem auto"><h2 style="margin-bottom:1rem">Failed to load</h2><p style="margin-bottom:1.5rem;opacity:0.9">Please refresh the page or try again later.</p><button onclick="location.reload()" style="padding:0.5rem 1.5rem;background:#dc2626;color:white;border:none;border-radius:0.5rem;cursor:pointer;font-size:1rem">Reload</button></div>';
+          }
+        }
+      }, true);
+    </script>
   </head>
 
   <body style="background-color: #0a0a0a; color: #fafafa; margin: 0; min-height: 100vh;">

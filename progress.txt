@@ -1,0 +1,21 @@
+## 2025-02-05 – Blank page fix
+
+### Task completed
+- Resolved blank page on currix.nl: removed invalid video preload, added script load error handler, added deploy verification step
+
+### Changes made
+1. **index.html**: Removed `<link rel="preload" as="video">` to fix "unsupported as value" console warning
+2. **index.html**: Added inline error handler that catches script load failures (e.g. 404) and shows "Failed to load" + Reload button instead of blank page
+3. **deploy.yml**: Added "Verify build output" step to fail CI if dist/index.html contains dev path /src/main.tsx or missing /assets/ reference
+
+### Root cause
+Live site was serving index.html with script src="/src/main.tsx" (dev path) instead of built /assets/index-xxx.js. This suggests GitHub Pages may have been serving from branch source instead of Actions artifact, or caching old content.
+
+### Next steps for user
+1. Ensure Settings → Pages → Build and deployment = "GitHub Actions"
+2. Push changes; workflow will deploy correct dist/
+3. Hard refresh (Ctrl+Shift+R) when testing
+
+### Architectural decisions
+- Inline error handler runs before module script; survives Vite build and catches 404 on main bundle
+- Removed video preload (optional) to avoid browser compatibility warnings
