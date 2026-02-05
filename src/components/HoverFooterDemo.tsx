@@ -3,31 +3,39 @@
 import React from "react";
 import {
   Mail,
+  Phone,
   MapPin,
+  Facebook,
   Instagram,
   Twitter,
-  Linkedin,
+  Dribbble,
+  Globe,
 } from "lucide-react";
 import {
   FooterBackgroundGradient,
   TextHoverEffect,
 } from "@/components/ui/hover-footer";
 
-const Footer = () => {
+/**
+ * HoverFooter demo component (original structure from 21st.dev).
+ * Adapted for Currix - use Footer.tsx for production.
+ */
+function HoverFooterDemo() {
   const footerLinks = [
     {
-      title: "Explore",
+      title: "About Us",
       links: [
-        { label: "About", href: "#about" },
-        { label: "Sauces", href: "#sauces" },
-        { label: "Vision", href: "#vision" },
+        { label: "Company History", href: "#about" },
+        { label: "Meet the Team", href: "#" },
+        { label: "Careers", href: "#" },
       ],
     },
     {
-      title: "Connect",
+      title: "Helpful Links",
       links: [
-        { label: "Contact", href: "#contact" },
-        { label: "Invest", href: "mailto:info@currix.com?subject=Investment%20Inquiry" },
+        { label: "FAQs", href: "#" },
+        { label: "Support", href: "#" },
+        { label: "Live Chat", href: "#", pulse: true },
       ],
     },
   ];
@@ -39,34 +47,38 @@ const Footer = () => {
       href: "mailto:info@currix.com",
     },
     {
+      icon: <Phone size={18} className="text-primary" />,
+      text: "+31 6 12345678",
+      href: "tel:+31612345678",
+    },
+    {
       icon: <MapPin size={18} className="text-primary" />,
       text: "Amsterdam, The Netherlands",
     },
   ];
 
   const socialLinks = [
+    { icon: <Facebook size={20} />, label: "Facebook", href: "#" },
     { icon: <Instagram size={20} />, label: "Instagram", href: "#" },
     { icon: <Twitter size={20} />, label: "Twitter", href: "#" },
-    { icon: <Linkedin size={20} />, label: "LinkedIn", href: "#" },
+    { icon: <Dribbble size={20} />, label: "Dribbble", href: "#" },
+    { icon: <Globe size={20} />, label: "Globe", href: "#" },
   ];
 
   return (
-    <footer className="relative border-t border-border overflow-hidden bg-card/30">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-14 lg:py-16 z-10 relative pb-[max(3rem,env(safe-area-inset-bottom))]">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 md:gap-8 lg:gap-12 pb-12">
-          {/* Brand section */}
+    <footer className="bg-card/30 relative rounded-3xl overflow-hidden m-4 sm:m-8 border border-border">
+      <div className="max-w-7xl mx-auto p-8 sm:p-14 z-40 relative">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 md:gap-8 lg:gap-16 pb-12">
           <div className="flex flex-col space-y-4">
-            <a href="#top" className="flex items-center space-x-2 group">
-              <span className="font-display text-2xl sm:text-3xl tracking-wider text-foreground group-hover:text-primary transition-colors">
-                CURRIX
-              </span>
-            </a>
+            <div className="flex items-center space-x-2">
+              <span className="text-primary text-3xl font-extrabold">&hearts;</span>
+              <span className="text-foreground font-display text-3xl tracking-wider">CURRIX</span>
+            </div>
             <p className="text-muted-foreground text-sm leading-relaxed font-body">
               Not fast food. Food culture. Born in The Netherlands.
             </p>
           </div>
 
-          {/* Footer link sections */}
           {footerLinks.map((section) => (
             <div key={section.title}>
               <h4 className="text-foreground font-display text-sm tracking-wider uppercase mb-6">
@@ -74,23 +86,25 @@ const Footer = () => {
               </h4>
               <ul className="space-y-3">
                 {section.links.map((link) => (
-                  <li key={link.label}>
+                  <li key={link.label} className="relative">
                     <a
                       href={link.href}
                       className="text-muted-foreground hover:text-primary transition-colors font-body text-sm"
                     >
                       {link.label}
                     </a>
+                    {link.pulse && (
+                      <span className="absolute top-0 right-[-10px] w-2 h-2 rounded-full bg-primary animate-pulse" />
+                    )}
                   </li>
                 ))}
               </ul>
             </div>
           ))}
 
-          {/* Contact section */}
           <div>
             <h4 className="text-foreground font-display text-sm tracking-wider uppercase mb-6">
-              Contact
+              Contact Us
             </h4>
             <ul className="space-y-4">
               {contactInfo.map((item, i) => (
@@ -116,7 +130,6 @@ const Footer = () => {
 
         <hr className="border-border my-8" />
 
-        {/* Footer bottom */}
         <div className="flex flex-col md:flex-row justify-between items-center gap-6">
           <div className="flex gap-6 text-muted-foreground">
             {socialLinks.map(({ icon, label, href }) => (
@@ -136,14 +149,13 @@ const Footer = () => {
         </div>
       </div>
 
-      {/* Large text hover effect - hidden on mobile for performance and layout */}
-      <div className="hidden lg:flex h-[24rem] sm:h-[28rem] -mt-40 -mb-24 min-h-[200px]">
-        <TextHoverEffect text="CURRIX" className="z-20 w-full" />
+      <div className="lg:flex hidden h-[30rem] -mt-52 -mb-36 min-h-[200px]">
+        <TextHoverEffect text="CURRIX" className="z-50 w-full" />
       </div>
 
       <FooterBackgroundGradient />
     </footer>
   );
-};
+}
 
-export default Footer;
+export default HoverFooterDemo;

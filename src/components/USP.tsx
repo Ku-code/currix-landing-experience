@@ -1,6 +1,6 @@
 const USP = () => {
   return (
-    <section className="min-h-screen flex items-center py-24 px-6 bg-card relative overflow-hidden">
+    <section id="usp" className="min-h-screen flex items-center py-24 px-6 bg-card relative overflow-hidden scroll-mt-24">
       {/* Large background text */}
       <div className="absolute inset-0 flex items-center justify-center pointer-events-none opacity-[0.03]">
         <span className="font-display text-[40vw] leading-none">X</span>

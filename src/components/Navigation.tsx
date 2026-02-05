@@ -1,7 +1,18 @@
 import { useState, useEffect } from "react";
+import { Menu } from "lucide-react";
+import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
+import { Button } from "@/components/ui/button";
+
+const navLinks = [
+  { href: "#about", label: "ABOUT" },
+  { href: "#sauces", label: "SAUCES" },
+  { href: "#vision", label: "VISION" },
+  { href: "#contact", label: "CONTACT" },
+];
 
 const Navigation = () => {
   const [scrolled, setScrolled] = useState(false);
+  const [mobileOpen, setMobileOpen] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -21,25 +32,53 @@ const Navigation = () => {
         }`}
       >
         {/* Logo */}
-        <a href="#" className="font-display text-xl tracking-wider hover:text-primary transition-colors">
+        <a href="#top" className="font-display text-xl tracking-wider hover:text-primary transition-colors">
           CURRIX
         </a>
         
         {/* Nav links - hidden on mobile */}
         <div className="hidden md:flex items-center gap-6">
-          <a href="#" className="text-sm tracking-wider text-muted-foreground hover:text-foreground transition-colors font-body">
-            ABOUT
-          </a>
-          <a href="#" className="text-sm tracking-wider text-muted-foreground hover:text-foreground transition-colors font-body">
-            SAUCES
-          </a>
-          <a href="#" className="text-sm tracking-wider text-muted-foreground hover:text-foreground transition-colors font-body">
-            VISION
-          </a>
-          <a href="#" className="text-sm tracking-wider text-primary hover:text-primary/80 transition-colors font-body font-medium">
-            CONTACT
-          </a>
+          {navLinks.map((link) => (
+            <a
+              key={link.href}
+              href={link.href}
+              className={`text-sm tracking-wider transition-colors font-body ${
+                link.label === "CONTACT"
+                  ? "text-primary hover:text-primary/80 font-medium"
+                  : "text-muted-foreground hover:text-foreground"
+              }`}
+            >
+              {link.label}
+            </a>
+          ))}
         </div>
+
+        {/* Mobile menu */}
+        <Sheet open={mobileOpen} onOpenChange={setMobileOpen}>
+          <SheetTrigger asChild className="md:hidden">
+            <Button variant="ghost" size="icon" aria-label="Open menu">
+              <Menu className="h-5 w-5" />
+            </Button>
+          </SheetTrigger>
+          <SheetContent side="right" className="flex flex-col justify-center">
+            <div className="flex flex-col gap-6">
+              {navLinks.map((link) => (
+                <a
+                  key={link.href}
+                  href={link.href}
+                  onClick={() => setMobileOpen(false)}
+                  className={`font-display text-2xl tracking-wider transition-colors ${
+                    link.label === "CONTACT"
+                      ? "text-primary hover:text-primary/80"
+                      : "text-foreground hover:text-primary"
+                  }`}
+                >
+                  {link.label}
+                </a>
+              ))}
+            </div>
+          </SheetContent>
+        </Sheet>
       </div>
     </nav>
   );

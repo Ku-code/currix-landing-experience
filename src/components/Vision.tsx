@@ -21,7 +21,7 @@ const Vision = () => {
   ];
 
   return (
-    <section className="min-h-screen flex items-center py-24 px-6">
+    <section id="vision" className="min-h-screen flex items-center py-24 px-6 scroll-mt-24">
       <div className="max-w-6xl mx-auto w-full">
         {/* Section label */}
         <p className="text-primary text-sm tracking-[0.3em] uppercase mb-8 font-body">
