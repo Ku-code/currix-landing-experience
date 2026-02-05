@@ -50,6 +50,9 @@ const Hero = () => {
         <h1 className="font-display text-[clamp(3rem,12vw,10rem)] leading-[0.85] tracking-tight mb-6 animate-slide-up">
           <span className="text-gradient-wave">CURRYWURST</span>
         </h1>
+        <p className="text-white text-xl font-display tracking-tight uppercase md:hidden animate-slide-up -mt-2 mb-6" style={{ animationDelay: '0.1s' }}>
+          CURRIX
+        </p>
         
         {/* Tagline */}
         <p className="text-muted-foreground text-base md:text-lg font-body font-light tracking-wide mb-2 -mt-2 animate-fade-in" style={{ animationDelay: '0.2s' }}>
