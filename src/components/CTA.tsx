@@ -33,7 +33,7 @@ const CTA = () => {
         {/* Contact info */}
         <div className="space-y-2 text-muted-foreground font-body text-sm tracking-wider">
           <p>AMSTERDAM, THE NETHERLANDS</p>
-          <p className="text-foreground">HELLO@CURRIX.COM</p>
+          <p className="text-foreground">INFO@CURRIX.COM</p>
         </div>
       </div>
     </section>
