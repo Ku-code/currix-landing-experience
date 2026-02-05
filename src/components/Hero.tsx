@@ -6,20 +6,34 @@ const Hero = () => {
 
   return (
     <section id="top" className="relative min-h-screen flex flex-col items-center justify-center overflow-hidden px-6">
-      {/* Background video - with fallback if it fails to load */}
+      {/* Background video - mobile: mobile.mp4, desktop: currix-video.mp4 */}
       {!videoError && (
-        <video
-          autoPlay
-          muted
-          loop
-          playsInline
-          preload="auto"
-          className="absolute inset-0 w-full h-full object-cover z-0"
-          aria-hidden
-          onError={() => setVideoError(true)}
-        >
-          <source src="/currix-video.mp4" type="video/mp4" />
-        </video>
+        <>
+          <video
+            autoPlay
+            muted
+            loop
+            playsInline
+            preload="auto"
+            className="absolute inset-0 w-full h-full object-cover z-0 md:hidden"
+            aria-hidden
+            onError={() => setVideoError(true)}
+          >
+            <source src="/mobile.mp4" type="video/mp4" />
+          </video>
+          <video
+            autoPlay
+            muted
+            loop
+            playsInline
+            preload="auto"
+            className="absolute inset-0 w-full h-full object-cover z-0 hidden md:block"
+            aria-hidden
+            onError={() => setVideoError(true)}
+          >
+            <source src="/currix-video.mp4" type="video/mp4" />
+          </video>
+        </>
       )}
       {/* Fallback background when video fails to load */}
       {videoError && (
