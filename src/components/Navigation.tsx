@@ -23,7 +23,10 @@ const Navigation = () => {
   }, []);
 
   return (
-    <nav className="fixed top-4 right-4 z-50">
+    <nav className="fixed top-4 right-4 z-50 flex items-center gap-3">
+      <a href="#top" className="font-display text-sm tracking-wider hover:text-primary transition-colors">
+        CURRIX
+      </a>
       <div
         className={`w-12 h-12 flex items-center justify-center rounded-full transition-all duration-300 ${
           scrolled
@@ -31,7 +34,6 @@ const Navigation = () => {
             : "bg-card/60 backdrop-blur-sm border border-border/50"
         }`}
       >
-        {/* Burger menu */}
         <Sheet open={mobileOpen} onOpenChange={setMobileOpen}>
           <SheetTrigger asChild>
             <Button variant="ghost" size="icon" className="h-8 w-8" aria-label="Open menu">
