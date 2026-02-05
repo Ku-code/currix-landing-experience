@@ -46,13 +46,19 @@ const Hero = () => {
       
       {/* Content */}
       <div className="relative z-10 text-center max-w-5xl mx-auto -mt-32 md:-mt-48">
-        {/* Brand name */}
-        <h1 className="font-display text-[clamp(3rem,12vw,10rem)] leading-[0.85] tracking-tight mb-6 animate-slide-up">
+        {/* Brand name - Desktop: CURRYWURST large with gradient */}
+        <h1 className="font-display text-[clamp(3rem,12vw,10rem)] leading-[0.85] tracking-tight mb-6 animate-slide-up hidden md:block">
           <span className="text-gradient-wave">CURRYWURST</span>
         </h1>
-        <p className="text-white text-xl font-display tracking-tight uppercase md:hidden animate-slide-up -mt-2 mb-6" style={{ animationDelay: '0.1s' }}>
-          CURRIX
-        </p>
+        {/* Brand name - Mobile: CURRIX large with gradient, CURRYWURST smaller white below */}
+        <div className="md:hidden mb-6">
+          <h1 className="font-display text-[clamp(3rem,12vw,10rem)] leading-[0.85] tracking-tight animate-slide-up">
+            <span className="text-gradient-wave">CURRIX</span>
+          </h1>
+          <p className="text-white text-2xl font-display tracking-tight uppercase animate-slide-up -mt-2" style={{ animationDelay: '0.1s' }}>
+            CURRYWURST
+          </p>
+        </div>
         
         {/* Tagline */}
         <p className="text-muted-foreground text-base md:text-lg font-body font-light tracking-wide mb-2 -mt-2 animate-fade-in" style={{ animationDelay: '0.2s' }}>
