@@ -1,20 +1,30 @@
+import { useState } from "react";
 import { Button } from "@/components/ui/button";
 
 const Hero = () => {
+  const [videoError, setVideoError] = useState(false);
+
   return (
     <section id="top" className="relative min-h-screen flex flex-col items-center justify-center overflow-hidden px-6">
-      {/* Background video - preloaded for fast LCP */}
-      <video
-        autoPlay
-        muted
-        loop
-        playsInline
-        preload="auto"
-        className="absolute inset-0 w-full h-full object-cover z-0"
-        aria-hidden
-      >
-        <source src="./currix-video.mp4" type="video/mp4" />
-      </video>
+      {/* Background video - with fallback if it fails to load */}
+      {!videoError && (
+        <video
+          autoPlay
+          muted
+          loop
+          playsInline
+          preload="auto"
+          className="absolute inset-0 w-full h-full object-cover z-0"
+          aria-hidden
+          onError={() => setVideoError(true)}
+        >
+          <source src="currix-video.mp4" type="video/mp4" />
+        </video>
+      )}
+      {/* Fallback background when video fails to load */}
+      {videoError && (
+        <div className="absolute inset-0 z-0 bg-background" aria-hidden />
+      )}
       {/* Dark overlay for text readability */}
       <div className="absolute inset-0 bg-background/70 z-[1]" aria-hidden />
       {/* Background glow effect */}
